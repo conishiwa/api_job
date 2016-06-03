@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 //  https://knpuniversity.com/screencast/oauth
 //  http://stackoverflow.com/questions/24709944/jwt-token-in-postman-header
 //  https://auth0.com/docs/refresh-token
-
+//  http://knpuniversity.com/screencast/symfony-rest/test-database
 
 /**
  * @Security("is_granted('ROLE_USER')")
