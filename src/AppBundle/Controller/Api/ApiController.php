@@ -18,7 +18,8 @@ use Symfony\Component\HttpFoundation\Response;
 //  https://jwt.io/
 //  https://github.com/lexik/LexikJWTAuthenticationBundle
 //  https://knpuniversity.com/screencast/oauth
-
+//  http://stackoverflow.com/questions/24709944/jwt-token-in-postman-header
+//  https://auth0.com/docs/refresh-token
 
 
 /**

@@ -18,7 +18,6 @@ class TokenController extends BaseController
      */
     public function newTokenAction(Request $request)
     {
-
         $user = $this->getDoctrine()
             ->getRepository('AppBundle:User')
             ->findOneBy(['username' => $request->getUser()]);
