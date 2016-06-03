@@ -1,0 +1,14 @@
+services:
+    job_import_uc:
+        class: AppBundle\UseCase\ImportJobs
+        arguments: ["@doctrine.orm.entity_manager", "%kernel.cache_dir%"]
+
+    uid.listener:
+        class: AppBundle\EventListener\UidGenerator
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    pagination_factory:
+        class: AppBundle\Pagination\PaginationFactory
+        arguments: ['@router']
+
