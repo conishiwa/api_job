@@ -12,3 +12,18 @@ services:
         class: AppBundle\Pagination\PaginationFactory
         arguments: ['@router']
 
+    api_exception_subscriber:
+        class: AppBundle\EventListener\ApiExceptionSubscriber
+        arguments: ['%kernel.debug%', '@api.response_factory']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    jwt_token_authenticator:
+        class: AppBundle\Security\JwtTokenAuthenticator
+        autowire: true
+
+    api.response_factory:
+        class: AppBundle\Api\ResponseFactory
+
+    custom_hateoas_json_serializer:
+        class: AppBundle\Serializer\CustomHATEOASJsonSerializer

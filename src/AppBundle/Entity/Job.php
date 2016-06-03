@@ -9,6 +9,10 @@ use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\Groups;
 
+
+use AppBundle\Annotation\Link;
+
+
 /**
  * Job
  *
@@ -18,6 +22,11 @@ use JMS\Serializer\Annotation\Groups;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\JobRepository")
  * @ExclusionPolicy("all")
+ * @Link(
+ *  "self",
+ *  route = "api_jobs_show",
+ *  params = { "uid": "object.getUid()" }
+ * )
  */
 class Job
 {

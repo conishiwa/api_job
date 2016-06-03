@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Pagination;
 
 use Doctrine\ORM\QueryBuilder;
@@ -7,13 +8,10 @@ use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
-use AppBundle\Pagination\PaginatedCollecton;
-
-
 class PaginationFactory
 {
-
     private $router;
+
     public function __construct(RouterInterface $router)
     {
         $this->router = $router;
@@ -25,15 +23,18 @@ class PaginationFactory
 
         $adapter = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(20);
+        $pagerfanta->setMaxPerPage(10);
         $pagerfanta->setCurrentPage($page);
 
-        $items = [];
+        $programmers = [];
         foreach ($pagerfanta->getCurrentPageResults() as $result) {
-            $items[] = $result;
+            $programmers[] = $result;
         }
 
-        $paginatedCollection = new PaginatedCollection($items, $pagerfanta->getNbResults());
+        $paginatedCollection = new PaginatedCollection($programmers, $pagerfanta->getNbResults());
+
+        // make sure query parameters are included in pagination links
+        $routeParams = array_merge($routeParams, $request->query->all());
 
         $createLinkUrl = function($targetPage) use ($route, $routeParams) {
             return $this->router->generate($route, array_merge(

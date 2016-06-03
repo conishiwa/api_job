@@ -1,0 +1,6 @@
+AppBundle\Entity\User:
+    user_conishiwa:
+        username: conishiwa
+        email: 'ferrand.n@gmail.com'
+        # Lazy way of doing this: Password for "foo"
+        password: '$2a$08$Y1J2TZ6KMp7pA4MYmq4oW.S.RN8E9dXqFTUHVQtCWyTTnU37akcrW'

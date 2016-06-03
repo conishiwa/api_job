@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Web;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,13 +13,11 @@ class DefaultController extends Controller
 {
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function homepageAction()
     {
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        return $this->render('homepage.twig');
     }
 
 

@@ -1,12 +1,13 @@
 <?php
-namespace AppBundle\Pagination;
 
+namespace AppBundle\Pagination;
 
 class PaginatedCollection
 {
-
     private $items;
+
     private $total;
+
     private $count;
 
     private $_links = array();
@@ -22,5 +23,4 @@ class PaginatedCollection
     {
         $this->_links[$ref] = $url;
     }
-
 }

@@ -1,7 +1,10 @@
-api:
-    resource: AppBundle\Controller\ApiController
+app_web:
+    resource: "@AppBundle/Controller/Web"
+    type:     annotation
+
+app_api:
+    resource: "@AppBundle/Controller/Api"
     type:     annotation
     prefix: /api/
-default:
-    resource: AppBundle\Controller\DefaultController
-    type:     annotation
+    defaults:
+        _format: json
